@@ -13,12 +13,14 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('Order', function (Blueprint $table) {
+        Schema::create('PurchaseOrder', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('idUser')->unsigned();
             $table->foreign('idUser')->references('id')->on('User')->onDelete('cascade');
             $table->bigInteger('idProduct')->unsigned();
             $table->foreign('idProduct')->references('id')->on('Product')->onDelete('cascade');
+            $table->char('completed',1);
+            $table->date('date');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Order');
+        Schema::dropIfExists('PurchaseOrder');
     }
 }
