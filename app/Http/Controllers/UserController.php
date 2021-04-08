@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -79,6 +80,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
+            DB::beginTransaction();
             $validaterequest=$this->validator($request);
             if($validaterequest->fails())
                 return response()->json(['errors'=>$validaterequest->errors()]);
@@ -89,12 +91,14 @@ class UserController extends Controller
                 'type' => $request->get('type')
             ]);
             $token = JWTAuth::fromUser($user);
+            DB::commit();
             return response()->json(array(
                 'message'=>'Success',
                 'data'=>$user,
                 'token'=>$token
             ),201);
         } catch (\Exception $e) {
+            DB::rollback();
             return response()->json(array(
                 'message'=>'Error'
             ), 400);
@@ -104,12 +108,20 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        try {
+            return response()->json(array(
+                'message'=>'Success',
+                'data'=>User::all()
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
     }
 
     /**
@@ -132,7 +144,7 @@ class UserController extends Controller
     public function update(Request $request)
     {
         try {
-            $user=User::find($request->idUser);
+            $user=User::find($request->get('idUser'));
             $user->name=$request->get('name');
             $user->email=$request->get('email');
             $user->type=$request->get('type');
@@ -140,28 +152,6 @@ class UserController extends Controller
             return response()->json(array(
                 'message'=>'Success',
                 'data'=>$user
-            ), 200);
-        } catch (\Exception $e) {
-            return response()->json(array(
-                'message'=>'Error'
-            ), 400);
-        }
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function updatePassword(Request $request)
-    {
-        try {
-            $user=User::find($request->idUser);
-            $user->password=Hash::make($request->get('password'));
-            $user->save();
-            return response()->json(array(
-                'message'=>'Success'
             ), 200);
         } catch (\Exception $e) {
             return response()->json(array(
@@ -179,7 +169,7 @@ class UserController extends Controller
     public function destroy(Request $request)
     {
         try {
-            User::destroy($request->idUser);
+            User::destroy($request->get('idUser'));
             return response()->json(array(
                 'message'=>'Success'
             ), 200);
@@ -197,13 +187,13 @@ class UserController extends Controller
      */
     public function validator($request){
         return $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
+            'name' => 'required|alpha|max:255',
             'email' => 'required|string|email|max:255|unique:User',
             'password' => 'string|min:6',
             'type' => 'required',
         ],[
             'name.required'=>'Ingrese su nombre',
-            'name.string'=>'El nombre solo debe contener caracteres alfabéticos',
+            'name.alpha'=>'El nombre solo debe contener caracteres alfabéticos',
             'name.max'=>'El nombre no debe tener más de 255 caracteres ',
             'email.required'=>'Ingrese su email',
             'email.string'=>'El email solo debe contener caracteres alfabéticos',

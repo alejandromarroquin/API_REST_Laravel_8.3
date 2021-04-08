@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
@@ -35,18 +37,49 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+
+            DB::beginTransaction();
+            $validaterequest=$this->validator($request);
+            if($validaterequest->fails())
+                return response()->json(['errors'=>$validaterequest->errors()]);
+            $order=Order::create([
+                'idUser'=>auth()->user()->id,
+                'idProduct'=>$request->get('idProduct'),
+                'completed'=>'0',
+                'date'=>date("Y-m-d")
+            ]);
+            DB::commit();
+            return response()->json(array(
+                'message'=>'Success',
+                'data'=>$order
+            ), 200);
+        } catch (\Exception $e) {
+            return $e;
+            DB::rollback();
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function show(Order $order)
+    public function show()
     {
-        //
+        try {
+            return response()->json(array(
+                'message'=>'Success',
+                'data'=>Order::join('Product','PurchaseOrder.idProduct','=','Product.id')->join('User','PurchaseOrder.idUser','=','User.id')->select('PurchaseOrder.id as idOrder','Product.name as nameProduct','completed','price','User.name as nameUser')->get()
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
     }
 
     /**
@@ -75,11 +108,49 @@ class OrderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Order  $order
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            Order::destroy($request->get('idOrder'));
+            return response()->json(array(
+                'message'=>'Success'
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
+    }
+
+    public function completedOrder(Request $request){
+        try {
+            $order=Order::find($request->idOrder);
+            $order->completed=1;
+            $order->save();
+            return response()->json(array(
+                'message'=>'Success'
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
+    }
+
+    /**
+     * Validate data.
+     *
+     * @param  object  $request
+     */
+    public function validator($request){
+        return $validator = Validator::make($request->all(), [
+            'idProduct' => 'required|numeric',
+        ],[
+            'idProduct.required'=>'Es necesario enviar el ID del producto',
+            'idProduct.numeric'=>'El ID del producto debe ser númerico',
+        ]);
     }
 }
