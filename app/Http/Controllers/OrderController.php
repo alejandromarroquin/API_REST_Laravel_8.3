@@ -6,6 +6,7 @@ use App\Models\Order;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
+use Spatie\GoogleCalendar\Event;
 
 class OrderController extends Controller
 {
@@ -125,6 +126,12 @@ class OrderController extends Controller
         }
     }
 
+    /**
+     * Update attribute completed.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function completedOrder(Request $request){
         try {
             $order=Order::find($request->idOrder);
@@ -132,6 +139,45 @@ class OrderController extends Controller
             $order->save();
             return response()->json(array(
                 'message'=>'Success'
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
+    }
+
+    /**
+     * Get Events Calendar.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getEventsCalendar(){
+        try {
+            return Event::get();
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
+    }
+
+    /**
+     * Get Events Calendar.
+     *
+     * @param  object  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function createEventCalendar(Request $request){
+        try {
+            $event=new Event;
+            $event->name=$request->nameEvent;
+            $event->startDateTime=Carbon\Carbon::now();
+            $event->endDateTime=Carbon\Carbon::now()->addHour();
+            $event->save();
+            return response()->json(array(
+                'message'=>'Sucess',
+                'data'=>$event
             ), 200);
         } catch (\Exception $e) {
             return response()->json(array(
@@ -153,4 +199,5 @@ class OrderController extends Controller
             'idProduct.numeric'=>'El ID del producto debe ser númerico',
         ]);
     }
+
 }
