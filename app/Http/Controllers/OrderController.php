@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Spatie\GoogleCalendar\Event;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -172,8 +173,8 @@ class OrderController extends Controller
         try {
             $event=new Event;
             $event->name=$request->nameEvent;
-            $event->startDateTime=Carbon\Carbon::now();
-            $event->endDateTime=Carbon\Carbon::now()->addHour();
+            $event->startDateTime=Carbon::now();
+            $event->endDateTime=Carbon::now()->addHour();
             $event->save();
             return response()->json(array(
                 'message'=>'Sucess',
