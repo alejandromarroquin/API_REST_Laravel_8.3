@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('createuser','App\Http\Controllers\UserController@store');
 Route::post('login', 'App\Http\Controllers\UserController@authenticate');
+Route::post('updatepassword','App\Http\Controllers\UserController@updatePassword');
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('user','App\Http\Controllers\UserController@getAuthenticatedUser');
+    Route::post('updateuser','App\Http\Controllers\UserController@update');
+    Route::post('deleteuser','App\Http\Controllers\UserController@destroy');
 });

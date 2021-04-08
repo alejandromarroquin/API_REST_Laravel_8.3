@@ -90,8 +90,8 @@ class UserController extends Controller
             ]);
             $token = JWTAuth::fromUser($user);
             return response()->json(array(
-                'message'=>'success',
-                'user'=>$user,
+                'message'=>'Success',
+                'data'=>$user,
                 'token'=>$token
             ),201);
         } catch (\Exception $e) {
@@ -127,23 +127,67 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        try {
+            $user=User::find($request->idUser);
+            $user->name=$request->get('name');
+            $user->email=$request->get('email');
+            $user->type=$request->get('type');
+            $user->save();
+            return response()->json(array(
+                'message'=>'Success',
+                'data'=>$user
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function updatePassword(Request $request)
+    {
+        try {
+            $user=User::find($request->idUser);
+            $user->password=Hash::make($request->get('password'));
+            $user->save();
+            return response()->json(array(
+                'message'=>'Success'
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            User::destroy($request->idUser);
+            return response()->json(array(
+                'message'=>'Success'
+            ), 200);
+        } catch (\Exception $e) {
+            return response()->json(array(
+                'message'=>'Error'
+            ), 400);
+        }
     }
 
     /**
