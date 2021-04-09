@@ -15,6 +15,9 @@ class UserController extends Controller
 
     /**
      * Authenticate.
+     * 
+     * @bodyParam email email required Registered user email
+     * @bodyParam password string required Registered user password 
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -72,7 +75,12 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create User.
+     * 
+     * @bodyParam name string required User name
+     * @bodyParam email email required Email for login user
+     * @bodyParam password string required Password for login user
+     * @bodyParam type char(1) required Type user (A, B or C)
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -106,7 +114,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show list Users.
      *
      * @return \Illuminate\Http\Response
      */
@@ -136,7 +144,12 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update User.
+     * 
+     * @bodyParam idUser integer required ID user to update
+     * @bodyParam name string required User name
+     * @bodyParam email email required Email for login user
+     * @bodyParam type char(1) required Type user (A, B or C)
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -161,7 +174,9 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove User.
+     * 
+     * @bodyParam idUser integer required ID user to removed
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -187,7 +202,7 @@ class UserController extends Controller
      */
     public function validator($request){
         return $validator = Validator::make($request->all(), [
-            'name' => 'required|alpha|max:255',
+            'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:User',
             'password' => 'string|min:6',
             'type' => 'required',

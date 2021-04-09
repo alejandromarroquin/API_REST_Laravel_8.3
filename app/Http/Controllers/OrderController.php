@@ -32,7 +32,9 @@ class OrderController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create Order.
+     * 
+     * @bodyParam idProduct integer required ID product purchase
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -57,7 +59,6 @@ class OrderController extends Controller
                 'data'=>$order
             ), 200);
         } catch (\Exception $e) {
-            return $e;
             DB::rollback();
             return response()->json(array(
                 'message'=>'Error'
@@ -66,7 +67,7 @@ class OrderController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show list Orders.
      *
      * @return \Illuminate\Http\Response
      */
@@ -108,7 +109,9 @@ class OrderController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove Order.
+     * 
+     *  @bodyParam idOrder integer required ID of order delete
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -128,7 +131,9 @@ class OrderController extends Controller
     }
 
     /**
-     * Update attribute completed.
+     * Update status completed.
+     * 
+     * @bodyParam idOrder integer required ID of the order
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -164,7 +169,9 @@ class OrderController extends Controller
     }
 
     /**
-     * Get Events Calendar.
+     * Create Events Calendar.
+     * 
+     * @bodyParam nameEvent string required Name of event in calendar
      *
      * @param  object  $request
      * @return \Illuminate\Http\Response

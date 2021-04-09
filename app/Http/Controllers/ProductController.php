@@ -30,7 +30,11 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create Product.
+     * 
+     * @bodyParam name string required Product name
+     * @bodyParam code string required Product bar code
+     * @bodyParam price double(6,2) required Product price
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -61,7 +65,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show list Products.
      *
      * @return \Illuminate\Http\Response
      */
@@ -91,7 +95,12 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update Product.
+     * 
+     * @bodyParam idProduct integer required Product ID to be updated
+     * @bodyParam name string required Product name
+     * @bodyParam code string required Product bar code
+     * @bodyParam price double(6,2) required Product price
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -116,7 +125,9 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove Product.
+     * 
+     * @bodyParam idProduct integer required Product ID to be removed
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response

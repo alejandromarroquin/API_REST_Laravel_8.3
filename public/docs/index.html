@@ -1,0 +1,2890 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <style>
+        /* Base16 Atelier Cave Light - Theme */
+/* by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/atelier-schemes/cave) */
+/* Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16) */
+
+/* Atelier-Cave Comment */
+.hljs-comment,
+.hljs-quote {
+  color: #655f6d;
+}
+
+/* Atelier-Cave Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag,
+.hljs-name,
+.hljs-regexp,
+.hljs-link,
+.hljs-name,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class {
+  color: #be4678;
+}
+
+/* Atelier-Cave Orange */
+.hljs-number,
+.hljs-meta,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params {
+  color: #aa573c;
+}
+
+/* Atelier-Cave Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet {
+  color: #2a9292;
+}
+
+/* Atelier-Cave Blue */
+.hljs-title,
+.hljs-section {
+  color: #576ddb;
+}
+
+/* Atelier-Cave Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #955ae7;
+}
+
+.hljs-deletion,
+.hljs-addition {
+  color: #19171c;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #be4678;
+}
+
+.hljs-addition {
+  background-color: #2a9292;
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  background: #efecf4;
+  color: #585260;
+  padding: 0.5em;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+/*
+
+Darcula color scheme from the JetBrains family of IDEs
+
+*/
+
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #2b2b2b;
+  color: #bababa;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-link,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal {
+  color: #6896ba;
+}
+
+.hljs-code,
+.hljs-selector-class {
+  color: #a6e22e;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-attribute,
+.hljs-name,
+.hljs-variable {
+  color: #cb7832;
+}
+
+.hljs-params {
+  color: #b9b9b9;
+}
+
+.hljs-string {
+  color: #6a8759;
+}
+
+.hljs-subst,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-symbol,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: #e0c46c;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #7f7f7f;
+}
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
+}
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2;
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff;
+}
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #f92672;
+}
+
+.hljs-symbol,
+.hljs-attribute {
+  color: #66d9ef;
+}
+
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
+}
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74;
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}
+
+/*
+Monokai style - ported by Luigi Maselli - http://grigio.org
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #272822;
+  color: #ddd;
+}
+
+.hljs-tag,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-strong,
+.hljs-name {
+  color: #f92672;
+}
+
+.hljs-code {
+  color: #66d9ef;
+}
+
+.hljs-class .hljs-title {
+  color: white;
+}
+
+.hljs-attribute,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-link {
+  color: #bf79db;
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #a6e22e;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-doctag,
+.hljs-title,
+.hljs-section,
+.hljs-type,
+.hljs-selector-id {
+  font-weight: bold;
+}
+
+/*
+ * Visual Studio 2015 dark style
+ * Author: Nicolas LLOBERA <nllobera@gmail.com>
+ */
+
+ .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #1E1E1E;
+  color: #DCDCDC;
+}
+
+.hljs-keyword,
+.hljs-literal,
+.hljs-symbol,
+.hljs-name {
+  color: #569CD6;
+}
+.hljs-link {
+  color: #569CD6;
+  text-decoration: underline;
+}
+
+.hljs-built_in,
+.hljs-type {
+  color: #4EC9B0;
+}
+
+.hljs-number,
+.hljs-class {
+  color: #B8D7A3;
+}
+
+.hljs-string,
+.hljs-meta-string {
+  color: #D69D85;
+}
+
+.hljs-regexp,
+.hljs-template-tag {
+  color: #9A5334;
+}
+
+.hljs-subst,
+.hljs-function,
+.hljs-title,
+.hljs-params,
+.hljs-formula {
+  color: #DCDCDC;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #57A64A;
+  font-style: italic;
+}
+
+.hljs-doctag {
+  color: #608B4E;
+}
+
+.hljs-meta,
+.hljs-meta-keyword,
+.hljs-tag {
+  color: #9B9B9B;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: #BD63C5;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-builtin-name {
+  color: #9CDCFE;
+}
+
+.hljs-section {
+  color: gold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/*.hljs-code {
+  font-family:'Monospace';
+}*/
+
+.hljs-bullet,
+.hljs-selector-tag,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #D7BA7D;
+}
+
+.hljs-addition {
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
+}
+
+.hljs-deletion {
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Copied from https://github.com/slatedocs/slate/blob/c4b4c0b8f83e891ca9fab6bbe9a1a88d5fe41292/stylesheets/print.css and unminified */
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden],
+template {
+    display: none
+}
+
+a {
+    background-color: transparent
+}
+
+a:active,
+a:hover {
+    outline: 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,
+strong {
+    font-weight: bold
+}
+
+dfn {
+    font-style: italic
+}
+
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+small {
+    font-size: 80%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -0.5em
+}
+
+sub {
+    bottom: -0.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 1em 40px
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0
+}
+
+pre {
+    overflow: auto
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto
+}
+
+input[type="search"] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+optgroup {
+    font-weight: bold
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+th {
+    padding: 0
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4 {
+    font-weight: bold
+}
+
+.content pre,
+.content code {
+    font-family: Consolas, Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.content pre,
+.content code {
+    word-break: break-all;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto
+}
+
+@font-face {
+    font-family: 'slate';
+    src: url(../fonts/slate.eot?-syv14m);
+    src: url(../fonts/slate.eot?#iefix-syv14m) format("embedded-opentype"), url(../fonts/slate.woff2?-syv14m) format("woff2"), url(../fonts/slate.woff?-syv14m) format("woff"), url(../fonts/slate.ttf?-syv14m) format("truetype"), url(../fonts/slate.svg?-syv14m#slate) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+.content aside.warning:before,
+.content aside.notice:before,
+.content aside.success:before {
+    font-family: 'slate';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1
+}
+
+.content aside.warning:before {
+    content: "\e600"
+}
+
+.content aside.notice:before {
+    content: "\e602"
+}
+
+.content aside.success:before {
+    content: "\e606"
+}
+
+.tocify,
+.toc-footer,
+.lang-selector,
+.search,
+#nav-button {
+    display: none
+}
+
+.tocify-wrapper>img {
+    margin: 0 auto;
+    display: block
+}
+
+.content {
+    font-size: 12px
+}
+
+.content pre,
+.content code {
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 0.8em
+}
+
+.content pre code {
+    border: 0
+}
+
+.content pre {
+    padding: 1.3em
+}
+
+.content code {
+    padding: 0.2em
+}
+
+.content table {
+    border: 1px solid #999
+}
+
+.content table tr {
+    border-bottom: 1px solid #999
+}
+
+.content table td,
+.content table th {
+    padding: 0.7em
+}
+
+.content p {
+    line-height: 1.5
+}
+
+.content a {
+    text-decoration: none;
+    color: #000
+}
+
+.content h1 {
+    font-size: 2.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 21px;
+    border: 2px solid #ccc;
+    border-width: 2px 0;
+    text-align: center
+}
+
+.content h2 {
+    font-size: 1.8em;
+    margin-top: 2em;
+    border-top: 2px solid #ccc;
+    padding-top: 0.8em
+}
+
+.content h1+h2,
+.content h1+div+h2 {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0
+}
+
+.content h3,
+.content h4 {
+    font-size: 0.8em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    text-transform: uppercase
+}
+
+.content h5,
+.content h6 {
+    text-transform: uppercase
+}
+
+.content aside {
+    padding: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    line-height: 1.6
+}
+
+.content aside:before {
+    vertical-align: middle;
+    padding-right: 0.5em;
+    font-size: 14px
+}
+
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+html {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.2em;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    margin: 0
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+
+[hidden],
+template {
+    display: none
+}
+
+a {
+    background-color: transparent
+}
+
+a:active,
+a:hover {
+    outline: 0
+}
+
+abbr[title] {
+    border-bottom: 1px dotted
+}
+
+b,
+strong {
+    font-weight: 700
+}
+
+dfn {
+    font-style: italic
+}
+
+h1 {
+    font-size: 2em;
+    margin: .67em 0
+}
+
+mark {
+    background: #ff0;
+    color: #000
+}
+
+small {
+    font-size: 80%
+}
+
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+sup {
+    top: -.5em
+}
+
+sub {
+    bottom: -.25em
+}
+
+img {
+    border: 0
+}
+
+svg:not(:root) {
+    overflow: hidden
+}
+
+figure {
+    margin: 1em 40px
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0
+}
+
+pre {
+    overflow: auto
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0
+}
+
+button {
+    overflow: visible
+}
+
+button,
+select {
+    text-transform: none
+}
+
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled],
+html input[disabled] {
+    cursor: default
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
+input {
+    line-height: normal
+}
+
+input[type=checkbox],
+input[type=radio] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    height: auto
+}
+
+input[type=search] {
+    -webkit-appearance: textfield;
+    box-sizing: content-box
+}
+
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none
+}
+
+fieldset {
+    border: 1px solid silver;
+    margin: 0 2px;
+    padding: .35em .625em .75em
+}
+
+legend {
+    border: 0;
+    padding: 0
+}
+
+textarea {
+    overflow: auto
+}
+
+optgroup {
+    font-weight: 700
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+td,
+th {
+    padding: 0
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+body,
+html {
+    font-family: 'PT Sans', Helvetica Neue, Helvetica, Arial, Microsoft Yahei, 微软雅黑, STXihei, 华文细黑, sans-serif;
+    font-size: 15px;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    font-weight: 700
+}
+
+.content code,
+.content pre {
+    font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-size: 12px;
+    line-height: 1.5
+}
+
+.content code {
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto
+}
+
+.content aside.notice:before,
+.content aside.success:before,
+.content aside.warning:before,
+.tocify-wrapper>.search:before {
+    font-family: 'PT Sans', sans-serif;
+    speak: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1
+}
+
+.content aside.warning:before {
+    content: "✋"
+}
+
+.content aside.notice:before {
+    content: "ℹ"
+}
+
+.content aside.success:before {
+    content: "✅"
+}
+
+.tocify-wrapper>.search:before {
+    content: "🔎"
+}
+
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cs {
+    color: #909090
+}
+
+.highlight,
+.highlight .w {
+    background-color: #292929
+}
+
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: .5em;
+    background: #23241f
+}
+
+.hljs,
+.hljs-subst,
+.hljs-tag {
+    color: #f8f8f2
+}
+
+.hljs-emphasis,
+.hljs-strong {
+    color: #a8a8a2
+}
+
+.hljs-bullet,
+.hljs-link,
+.hljs-literal,
+.hljs-number,
+.hljs-quote,
+.hljs-regexp {
+    color: #ae81ff
+}
+
+.hljs-code,
+.hljs-section,
+.hljs-selector-class,
+.hljs-title {
+    color: #a6e22e
+}
+
+.hljs-strong {
+    font-weight: 700
+}
+
+.hljs-emphasis {
+    font-style: italic
+}
+
+.hljs-attr,
+.hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+    color: #f92672
+}
+
+.hljs-attribute,
+.hljs-symbol {
+    color: #66d9ef
+}
+
+.hljs-class .hljs-title,
+.hljs-params {
+    color: #f8f8f2
+}
+
+.hljs-addition,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-id,
+.hljs-selector-pseudo,
+.hljs-string,
+.hljs-template-variable,
+.hljs-type,
+.hljs-variable {
+    color: #e6db74
+}
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+    color: #75715e
+}
+
+body,
+html {
+    color: #333;
+    padding: 0;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: whitesmoke;
+    height: 100%;
+    -webkit-text-size-adjust: none
+}
+
+#toc>ul>li>a>span {
+    float: right;
+    background-color: #2484ff;
+    border-radius: 40px;
+    width: 20px
+}
+
+.tocify-wrapper {
+    transition: left .3s ease-in-out;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 230px;
+    background-color: #393939;
+    font-size: 13px;
+    font-weight: 700
+}
+
+.tocify-wrapper .lang-selector {
+    display: none
+}
+
+.tocify-wrapper .lang-selector a {
+    padding-top: .5em;
+    padding-bottom: .5em
+}
+
+.tocify-wrapper>img {
+    display: block
+}
+
+.tocify-wrapper>.search {
+    position: relative
+}
+
+.tocify-wrapper>.search input {
+    background: #393939;
+    border-width: 0 0 1px;
+    border-color: #666;
+    padding: 6px 0 6px 20px;
+    box-sizing: border-box;
+    margin: 10px 15px;
+    width: 200px;
+    outline: none;
+    color: #fff;
+    border-radius: 0
+}
+
+.tocify-wrapper>.search:before {
+    position: absolute;
+    top: 17px;
+    left: 15px;
+    color: #fff
+}
+
+.tocify-wrapper img+.tocify {
+    margin-top: 20px
+}
+
+.tocify-wrapper .search-results {
+    margin-top: 0;
+    box-sizing: border-box;
+    height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition-property: height, margin;
+    transition-duration: .18s;
+    transition-timing-function: ease-in-out;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .2), transparent 8px), linear-gradient(0deg, rgba(0, 0, 0, .2), transparent 8px), linear-gradient(180deg, #000, transparent 1.5px), linear-gradient(0deg, #939393, hsla(0, 0%, 58%, 0) 1.5px), #262626
+}
+
+.tocify-wrapper .search-results.visible {
+    height: 30%;
+    margin-bottom: 1em
+}
+
+.tocify-wrapper .search-results li {
+    margin: 1em 15px;
+    line-height: 1
+}
+
+.tocify-wrapper .search-results a {
+    color: #fff;
+    text-decoration: none
+}
+
+.tocify-wrapper .search-results a:hover {
+    text-decoration: underline
+}
+
+.tocify-wrapper .toc-footer li,
+.tocify-wrapper .tocify-item>a {
+    padding: 0 15px;
+    display: block;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.tocify-wrapper li,
+.tocify-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 28px
+}
+
+.tocify-wrapper li {
+    color: #fff;
+    transition-property: background;
+    transition-timing-function: linear;
+    transition-duration: .23s
+}
+
+.tocify-wrapper .tocify-focus {
+    box-shadow: 0 1px 0 #000;
+    background-color: #2467af;
+    color: #fff
+}
+
+.tocify-wrapper .tocify-subheader {
+    display: none;
+    background-color: #262626;
+    font-weight: 500;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .2), transparent 8px), linear-gradient(0deg, rgba(0, 0, 0, .2), transparent 8px), linear-gradient(180deg, #000, transparent 1.5px), linear-gradient(0deg, #939393, hsla(0, 0%, 58%, 0) 1.5px), #262626
+}
+
+.tocify-wrapper .tocify-subheader .tocify-item>a {
+    padding-left: 25px;
+    font-size: 12px
+}
+
+.tocify-wrapper .tocify-subheader>li:last-child {
+    box-shadow: none
+}
+
+.tocify-wrapper .toc-footer {
+    padding: 1em 0;
+    margin-top: 1em;
+    border-top: 1px dashed #666
+}
+
+.tocify-wrapper .toc-footer a,
+.tocify-wrapper .toc-footer li {
+    color: #fff;
+    text-decoration: none
+}
+
+.tocify-wrapper .toc-footer a:hover {
+    text-decoration: underline
+}
+
+.tocify-wrapper .toc-footer li {
+    font-size: .8em;
+    line-height: 1.7;
+    text-decoration: none
+}
+
+#nav-button {
+    padding: 0 1.5em 5em 0;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    color: #000;
+    text-decoration: none;
+    font-weight: 700;
+    opacity: .7;
+    line-height: 16px;
+    transition: left .3s ease-in-out
+}
+
+#nav-button span {
+    display: block;
+    padding: 6px;
+    background-color: rgba(234, 242, 246, .7);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: rotate(-90deg) translate(-100%);
+    transform: rotate(-90deg) translate(-100%);
+    border-radius: 0 0 0 5px
+}
+
+#nav-button img {
+    height: 16px;
+    vertical-align: bottom
+}
+
+#nav-button:hover {
+    opacity: 1
+}
+
+#nav-button.open {
+    left: 230px
+}
+
+.page-wrapper {
+    margin-left: 230px;
+    position: relative;
+    z-index: 10;
+    background-color: #eaf2f6;
+    min-height: 100%;
+    padding-bottom: 1px
+}
+
+.page-wrapper .dark-box {
+    width: 50%;
+    background-color: #393939;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0
+}
+
+.page-wrapper .lang-selector {
+    position: fixed;
+    z-index: 50;
+    border-bottom: 5px solid #393939
+}
+
+.lang-selector {
+    background-color: #222;
+    width: 100%;
+    font-weight: 700
+}
+
+.lang-selector a {
+    display: block;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 10px;
+    line-height: 30px;
+    outline: 0
+}
+
+.lang-selector a:active,
+.lang-selector a:focus {
+    background-color: #111;
+    color: #fff
+}
+
+.lang-selector a.active {
+    background-color: #393939;
+    color: #fff
+}
+
+.lang-selector:after {
+    content: '';
+    clear: both;
+    display: block
+}
+
+.content {
+    position: relative;
+    z-index: 30
+}
+
+.content:after {
+    content: '';
+    display: block;
+    clear: both
+}
+
+.content>aside,
+.content>details,
+.content>dl,
+.content>h1,
+.content>h2,
+.content>h3,
+.content>h4,
+.content>h5,
+.content>h6,
+.content>ol,
+.content>p,
+.content>table,
+.content>ul,
+.content>form>aside,
+.content>form>details,
+.content>form>h1,
+.content>form>h2,
+.content>form>h3,
+.content>form>h4,
+.content>form>h5,
+.content>form>h6,
+.content>form>p,
+.content>form>table,
+.content>form>ul {
+    margin-right: 50%;
+    padding: 0 28px;
+    box-sizing: border-box;
+    display: block;
+    text-shadow: 0 1px 0 #fff
+}
+
+.content>ol,
+.content>ul {
+    padding-left: 43px
+}
+
+.content>div,
+.content>h1,
+.content>h2 {
+    clear: both
+}
+
+.content h1 {
+    font-size: 30px;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 21px;
+    margin-top: 2em;
+    border-top: 1px solid #ddd;
+    background-image: linear-gradient(180deg, #fff, #f9f9f9)
+}
+
+.content div:first-child+h1,
+.content h1:first-child {
+    border-top-width: 0;
+    margin-top: 0
+}
+
+.content h2 {
+    font-size: 20px;
+    margin-top: 4em;
+    margin-bottom: 0;
+    border-top: 1px solid #ccc;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+    background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .4), hsla(0, 0%, 100%, 0))
+}
+
+.content h1+div+h2,
+.content h1+h2 {
+    margin-top: -21px;
+    border-top: none
+}
+
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+    font-size: 15px;
+    margin-top: 2.5em;
+    margin-bottom: .8em
+}
+
+.content h4,
+.content h5,
+.content h6 {
+    font-size: 10px
+}
+
+.content hr {
+    margin: 2em 0;
+    border-top: 2px solid #393939;
+    border-bottom: 2px solid #eaf2f6
+}
+
+.content table {
+    margin-bottom: 1em;
+    overflow: auto
+}
+
+.content table td,
+.content table th {
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.6
+}
+
+.content table th {
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    vertical-align: bottom
+}
+
+.content table td {
+    padding: 10px
+}
+
+.content table tr:last-child {
+    border-bottom: 1px solid #ccc
+}
+
+.content table tr:nth-child(odd)>td {
+    background-color: #ebf3f6
+}
+
+.content table tr:nth-child(even)>td {
+    background-color: #ebf2f6
+}
+
+.content dt {
+    font-weight: 700
+}
+
+.content dd {
+    margin-left: 15px
+}
+
+.content dd,
+.content dt,
+.content li,
+.content p {
+    line-height: 1.6;
+    margin-top: 0
+}
+
+.content img {
+    max-width: 100%
+}
+
+.content code {
+    background-color: rgba(0, 0, 0, .05);
+    padding: 3px;
+    border-radius: 3px
+}
+
+.content pre>code {
+    background-color: transparent;
+    padding: 0
+}
+
+.content aside {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-shadow: 0 1px 0 #a0c6da;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    background: #8fbcd4;
+    line-height: 1.6
+}
+
+.content aside.warning {
+    background-color: #c97a7e;
+    text-shadow: 0 1px 0 #d18e91
+}
+
+.content aside.success {
+    background-color: #6ac174;
+    text-shadow: 0 1px 0 #80ca89
+}
+
+.content aside:before {
+    vertical-align: middle;
+    padding-right: .5em;
+    font-size: 14px
+}
+
+.content .search-highlight {
+    padding: 2px;
+    margin: -2px;
+    border-radius: 4px;
+    border: 1px solid #f7e633;
+    text-shadow: 1px 1px 0 #666;
+    background: linear-gradient(to top left, #f7e633, #f1d32f)
+}
+
+.content blockquote,
+.content pre {
+    background-color: #292929;
+    color: #fff;
+    padding: 2em 28px;
+    margin: 0;
+    width: 50%;
+    float: right;
+    clear: right;
+    box-sizing: border-box;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .4)
+}
+
+.content blockquote>p,
+.content pre>p {
+    margin: 0
+}
+
+.content blockquote a,
+.content pre a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px dashed #ccc
+}
+
+.content blockquote>p {
+    background-color: #1c1c1c;
+    border-radius: 5px;
+    padding: 13px;
+    color: #ccc;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #404040
+}
+
+@media (max-width:930px) {
+    .tocify-wrapper {
+        left: -230px
+    }
+    .tocify-wrapper.open {
+        left: 0
+    }
+    .page-wrapper {
+        margin-left: 0
+    }
+    #nav-button {
+        display: block
+    }
+    .tocify-wrapper .tocify-item>a {
+        padding-top: .3em;
+        padding-bottom: .3em
+    }
+}
+
+@media (max-width:700px) {
+    .dark-box {
+        display: none
+    }
+    .tocify-wrapper .lang-selector {
+        display: block
+    }
+    .page-wrapper .lang-selector {
+        display: none
+    }
+    .content aside,
+    .content dl,
+    .content h1,
+    .content h2,
+    .content h3,
+    .content h4,
+    .content h5,
+    .content h6,
+    .content ol,
+    .content p,
+    .content table,
+    .content ul {
+        margin-right: 0
+    }
+    .content>aside,
+    .content>details,
+    .content>dl,
+    .content>h1,
+    .content>h2,
+    .content>h3,
+    .content>h4,
+    .content>h5,
+    .content>h6,
+    .content>ol,
+    .content>p,
+    .content>table,
+    .content>ul,
+    .content>form>aside,
+    .content>form>details,
+    .content>form>h1,
+    .content>form>h2,
+    .content>form>h3,
+    .content>form>h4,
+    .content>form>h5,
+    .content>form>h6,
+    .content>form>p,
+    .content>form>table,
+    .content>form>ul {
+        margin-right: 0;
+    }
+    .content blockquote,
+    .content pre {
+        float: none;
+        width: auto
+    }
+}
+
+.badge {
+    padding: 1px 9px 2px;
+    white-space: nowrap;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    color: #ffffff;
+    text-shadow: none !important;
+    font-weight: bold;
+}
+
+.badge.badge-darkred {
+    background-color: darkred;
+}
+
+.badge.badge-red {
+    background-color: red;
+}
+
+.badge.badge-blue {
+    background-color: blue;
+}
+
+.badge.badge-darkblue {
+    background-color: darkblue;
+}
+
+.badge.badge-green {
+    background-color: green;
+}
+
+.badge.badge-darkgreen {
+    background-color: darkgreen;
+}
+
+.badge.badge-purple {
+    background-color: purple;
+}
+
+.badge.badge-black {
+    background-color: black;
+}
+
+.badge.badge-grey {
+    background-color: grey;
+}
+
+.fancy-heading-panel {
+    background-color: lightgrey;
+    border-radius: 5px;
+    padding-left: 5px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-left: 25px;
+    margin-right: 10px;
+    width: 47%;
+}
+
+@media screen and (max-width: 700px) {
+    .fancy-heading-panel {
+        width: 95%;
+    }
+
+}
+
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/style.css" media="screen" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+        <script src="js/all.js"></script>
+
+        <link rel="stylesheet" href="css/highlight-darcula.css" media="" />
+        <script src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="" data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+<a href="#" id="nav-button">
+      <span>
+        NAV
+            <img src="images/navbar.png" alt="-image" class=""/>
+      </span>
+</a>
+<div class="tocify-wrapper">
+                <div class="lang-selector">
+                            <a href="#" data-language-name="bash">bash</a>
+                            <a href="#" data-language-name="javascript">javascript</a>
+                    </div>
+        <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+    <ul class="search-results"></ul>
+
+    <ul id="toc">
+    </ul>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="./collection.json">View Postman collection</a></li>
+                            <li><a href="./openapi.yaml">View OpenAPI (Swagger) spec</a></li>
+                            <li><a href='http://github.com/knuckleswtf/scribe'>Documentation powered by Scribe ✍</a></li>
+                    </ul>
+            <ul class="toc-footer" id="last-updated">
+            <li>Last updated: April 9 2021</li>
+        </ul>
+</div>
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1>Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+<script>
+    var baseUrl = "http://apirest.boxcode.com.mx";
+</script>
+<script src="js/tryitout-2.5.3.js"></script>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://apirest.boxcode.com.mx</code></pre><h1>Authenticating requests</h1>
+<p>This API is not authenticated.</p><h1>Endpoints</h1>
+<h2>Create User.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/createuser" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"Michelle Marquez","email":"michelle_m@gmail.com","password":"admin123","type":"A"}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": {
+            "name": "Michelle Marquez",
+            "email": "michelle_m@gmail.com",
+            "type": "A",
+            "id": 4
+        },
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9jcmVhdGV1c2VyIiwiaWF0IjoxNjE3OTI2MzYwLCJleHAiOjE2MTc5Mjk5NjAsIm5iZiI6MTYxNzkyNjM2MSwianRpIjoiQlZEUTVabDFCNVFoajJsZiIsInN1YiI6NCwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.zGFLotKWjEFsiV4TgPzv1h4jzDUfGTf6zS7K1Ks57Zk"
+    }
+</code></pre>
+<div id="execution-results-POSTapi-createuser" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-createuser"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-createuser"></code></pre>
+</div>
+<div id="execution-error-POSTapi-createuser" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-createuser"></code></pre>
+</div>
+<form id="form-POSTapi-createuser" data-method="POST" data-path="api/createuser" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-createuser', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-createuser" onclick="tryItOut('POSTapi-createuser');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-createuser" onclick="cancelTryOut('POSTapi-createuser');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-createuser" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/createuser</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-createuser" data-component="body" required  hidden>
+<br>
+User name
+</p>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>email</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-createuser" data-component="body" required  hidden>
+<br>
+Email for login user
+</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password" data-endpoint="POSTapi-createuser" data-component="body" required  hidden>
+<br>
+Password for login user
+</p>
+<p>
+<b><code>type</code></b>&nbsp;&nbsp;<small>char(1)</small>  &nbsp;
+<input type="text" name="type" data-endpoint="POSTapi-createuser" data-component="body" required  hidden>
+<br>
+Type user (A, B or C)
+</p>
+
+</form>
+<h2>Authenticate.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/login" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"email":"michelle_m@gmail.com","password":"admin123"}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTYxNzkyNzk0MiwiZXhwIjoxNjE3OTMxNTQyLCJuYmYiOjE2MTc5Mjc5NDIsImp0aSI6IndVamQ4RHVqbkFMQ3kwYlMiLCJzdWIiOjQsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.6Wf4iFLKWefaAshE-S1Qw3AAhJtMoLQ83jxNKuP0zZs"
+    }
+</code></pre>
+<div id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-login"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login"></code></pre>
+</div>
+<div id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
+</div>
+<form id="form-POSTapi-login" data-method="POST" data-path="api/login" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-login" onclick="tryItOut('POSTapi-login');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-login" onclick="cancelTryOut('POSTapi-login');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-login" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/login</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>email</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-login" data-component="body" required  hidden>
+<br>
+Registered user email
+</p>
+<p>
+<b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="password" name="password" data-endpoint="POSTapi-login" data-component="body" required  hidden>
+<br>
+Registered user password
+</p>
+
+</form>
+<h2>Get Events Calendar.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://apirest.boxcode.com.mx/api/getevents" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+    <blockquote>
+        <p>Example response:</p>
+        </blockquote>
+<pre><code class="language-javascript">
+[
+    {
+        "googleEvent": {
+            "anyoneCanAddSelf": null,
+            "attendeesOmitted": null,
+            "colorId": null,
+            "created": "2021-04-09T00:28:22.000Z",
+            "description": null,
+            "endTimeUnspecified": null,
+            "etag": "\"3235856205850000\"",
+            "eventType": "default",
+            "guestsCanInviteOthers": null,
+            "guestsCanModify": null,
+            "guestsCanSeeOtherGuests": null,
+            "hangoutLink": null,
+            "htmlLink": "https://www.google.com/calendar/event?eid=Ymw5Y3FuYTJmbTJ1a2c3MzhrNTEzZ3RnZTQgYzh0ZzZjdW8xbjc1bzFkMGY5MTVkdjNjdTRAZw",
+            "iCalUID": "bl9cqna2fm2ukg738k513gtge4@google.com",
+            "id": "bl9cqna2fm2ukg738k513gtge4",
+            "kind": "calendar#event",
+            "location": null,
+            "locked": null,
+            "privateCopy": null,
+            "recurrence": null,
+            "recurringEventId": null,
+            "sequence": 0,
+            "status": "confirmed",
+            "summary": "Nuevo pedido",
+            "transparency": null,
+            "updated": "2021-04-09T00:28:22.925Z",
+            "visibility": null,
+            "creator": {
+                "displayName": null,
+                "email": "alejandroc@miapicalendar.iam.gserviceaccount.com",
+                "id": null,
+                "self": null
+            },
+            "organizer": {
+                "displayName": "Orders",
+                "email": "c8tg6cuo1n75o1d0f915dv3cu4@group.calendar.google.com",
+                "id": null,
+                "self": true
+            },
+            "start": {
+                "date": null,
+                "dateTime": "2021-04-08T19:28:22-05:00",
+                "timeZone": null
+            },
+            "end": {
+                "date": null,
+                "dateTime": "2021-04-08T20:28:22-05:00",
+                "timeZone": null
+            },
+            "reminders": {
+                "useDefault": true
+            }
+        }
+    }
+]
+</code></pre>
+<div id="execution-results-GETapi-getevents" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-getevents"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-getevents"></code></pre>
+</div>
+<div id="execution-error-GETapi-getevents" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-getevents"></code></pre>
+</div>
+<form id="form-GETapi-getevents" data-method="GET" data-path="api/getevents" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-getevents', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-getevents" onclick="tryItOut('GETapi-getevents');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-getevents" onclick="cancelTryOut('GETapi-getevents');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-getevents" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/getevents</code></b>
+</p>
+</form>
+<h2>Create Events Calendar.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/createcalendarevent" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nameEvent":"Nuevo pedido"}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Sucess",
+        "data": {
+            "googleEvent": {
+                "anyoneCanAddSelf": null,
+                "attendeesOmitted": null,
+                "colorId": null,
+                "created": null,
+                "description": null,
+                "endTimeUnspecified": null,
+                "etag": null,
+                "eventType": null,
+                "guestsCanInviteOthers": null,
+                "guestsCanModify": null,
+                "guestsCanSeeOtherGuests": null,
+                "hangoutLink": null,
+                "htmlLink": null,
+                "iCalUID": null,
+                "id": null,
+                "kind": null,
+                "location": null,
+                "locked": null,
+                "privateCopy": null,
+                "recurrence": null,
+                "recurringEventId": null,
+                "sequence": null,
+                "status": null,
+                "summary": "Nuevo pedido",
+                "transparency": null,
+                "updated": null,
+                "visibility": null,
+                "start": {
+                    "date": null,
+                    "dateTime": "2021-04-09T00:28:22+00:00",
+                    "timeZone": {
+                        "timezone_type": 3,
+                        "timezone": "UTC"
+                    }
+                },
+                "end": {
+                    "date": null,
+                    "dateTime": "2021-04-09T01:28:22+00:00",
+                    "timeZone": {
+                        "timezone_type": 3,
+                        "timezone": "UTC"
+                    }
+                }
+            }
+        }
+    }
+</code></pre>
+<div id="execution-results-POSTapi-createcalendarevent" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-createcalendarevent"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-createcalendarevent"></code></pre>
+</div>
+<div id="execution-error-POSTapi-createcalendarevent" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-createcalendarevent"></code></pre>
+</div>
+<form id="form-POSTapi-createcalendarevent" data-method="POST" data-path="api/createcalendarevent" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-createcalendarevent', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-createcalendarevent" onclick="tryItOut('POSTapi-createcalendarevent');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-createcalendarevent" onclick="cancelTryOut('POSTapi-createcalendarevent');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-createcalendarevent" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/createcalendarevent</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>nameEvent</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="nameEvent" data-endpoint="POSTapi-createcalendarevent" data-component="body" required  hidden>
+<br>
+Name of event in calendar
+</p>
+
+</form>
+<h2>Get authenticated  User.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/user" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+    <blockquote>
+        <p>Example response:</p>
+        </blockquote>
+<pre><code class="language-javascript">
+    {
+        "user": {
+            "id": 4,
+            "name": "Michelle Marquez",
+            "email": "michelle_m@gmail.com",
+            "email_verified_at": null,
+            "type": "A",
+            "created_at": null,
+            "updated_at": null
+        }
+    }
+</code></pre>
+<div id="execution-results-POSTapi-user" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-user"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-user"></code></pre>
+</div>
+<div id="execution-error-POSTapi-user" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-user"></code></pre>
+</div>
+<form id="form-POSTapi-user" data-method="POST" data-path="api/user" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-user', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-user" onclick="tryItOut('POSTapi-user');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-user" onclick="cancelTryOut('POSTapi-user');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-user" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/user</code></b>
+</p>
+</form>
+<h2>Show list Users.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://apirest.boxcode.com.mx/api/getusers" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+    <blockquote>
+        <p>Example response:</p>
+        </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": [
+            {
+                "id": 2,
+                "name": "Mario",
+                "email": "mario@gmail.com",
+                "email_verified_at": null,
+                "type": "B",
+                "created_at": "2021-04-07 23:19:55",
+                "updated_at": "2021-04-08 00:21:10"
+            },
+            {
+                "id": 4,
+                "name": "Michelle Marquez",
+                "email": "michelle_m@gmail.com",
+                "email_verified_at": null,
+                "type": "A",
+                "created_at": null,
+                "updated_at": null
+            }
+        ]
+    }
+</code></pre>
+<div id="execution-results-GETapi-getusers" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-getusers"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-getusers"></code></pre>
+</div>
+<div id="execution-error-GETapi-getusers" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-getusers"></code></pre>
+</div>
+<form id="form-GETapi-getusers" data-method="GET" data-path="api/getusers" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-getusers', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-getusers" onclick="tryItOut('GETapi-getusers');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-getusers" onclick="cancelTryOut('GETapi-getusers');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-getusers" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/getusers</code></b>
+</p>
+</form>
+<h2>Update User.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/updateuser" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"idUser":2,"name":"Mario Alberto","email":"mario_a@gmail.com","type":"B"}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": {
+            "id": 2,
+            "name": "Mario Alberto",
+            "email": "mario_a@gmail.com",
+            "email_verified_at": null,
+            "type": "B",
+            "created_at": "2021-04-07 23:19:55",
+            "updated_at": "2021-04-08 00:21:10"
+        }
+    }
+</code></pre>
+<div id="execution-results-POSTapi-updateuser" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-updateuser"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-updateuser"></code></pre>
+</div>
+<div id="execution-error-POSTapi-updateuser" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-updateuser"></code></pre>
+</div>
+<form id="form-POSTapi-updateuser" data-method="POST" data-path="api/updateuser" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-updateuser', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-updateuser" onclick="tryItOut('POSTapi-updateuser');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-updateuser" onclick="cancelTryOut('POSTapi-updateuser');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-updateuser" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/updateuser</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idUser</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idUser" data-endpoint="POSTapi-updateuser" data-component="body" required  hidden>
+<br>
+ID user to update
+</p>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-updateuser" data-component="body" required  hidden>
+<br>
+User name
+</p>
+<p>
+<b><code>email</code></b>&nbsp;&nbsp;<small>email</small>  &nbsp;
+<input type="text" name="email" data-endpoint="POSTapi-updateuser" data-component="body" required  hidden>
+<br>
+Email for login user
+</p>
+<p>
+<b><code>type</code></b>&nbsp;&nbsp;<small>char(1)</small>  &nbsp;
+<input type="text" name="type" data-endpoint="POSTapi-updateuser" data-component="body" required  hidden>
+<br>
+Type user (A, B or C)
+</p>
+
+</form>
+<h2>Remove User.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/deleteuser" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"idUser":12}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success"
+    }
+</code></pre>
+<div id="execution-results-POSTapi-deleteuser" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-deleteuser"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-deleteuser"></code></pre>
+</div>
+<div id="execution-error-POSTapi-deleteuser" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-deleteuser"></code></pre>
+</div>
+<form id="form-POSTapi-deleteuser" data-method="POST" data-path="api/deleteuser" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-deleteuser', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-deleteuser" onclick="tryItOut('POSTapi-deleteuser');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-deleteuser" onclick="cancelTryOut('POSTapi-deleteuser');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-deleteuser" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/deleteuser</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idUser</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idUser" data-endpoint="POSTapi-deleteuser" data-component="body" required  hidden>
+<br>
+ID user to removed
+</p>
+
+</form>
+<h2>Create Product.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/createproduct" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"name":"Tenis deportivos","code":"3434332231","price":"1299.70"}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": {
+            "name": "Tenis deportivos",
+            "code": "3434332231",
+            "price": "1299.70",
+            "id": 3
+        }
+    }
+</code></pre>
+<div id="execution-results-POSTapi-createproduct" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-createproduct"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-createproduct"></code></pre>
+</div>
+<div id="execution-error-POSTapi-createproduct" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-createproduct"></code></pre>
+</div>
+<form id="form-POSTapi-createproduct" data-method="POST" data-path="api/createproduct" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-createproduct', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-createproduct" onclick="tryItOut('POSTapi-createproduct');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-createproduct" onclick="cancelTryOut('POSTapi-createproduct');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-createproduct" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/createproduct</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-createproduct" data-component="body" required  hidden>
+<br>
+Product name
+</p>
+<p>
+<b><code>code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="code" data-endpoint="POSTapi-createproduct" data-component="body" required  hidden>
+<br>
+Product bar code
+</p>
+<p>
+<b><code>price</code></b>&nbsp;&nbsp;<small>double(6,2)</small>  &nbsp;
+<input type="text" name="price" data-endpoint="POSTapi-createproduct" data-component="body" required  hidden>
+<br>
+Product price
+</p>
+
+</form>
+<h2>Show list Products.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://apirest.boxcode.com.mx/api/getproducts" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+    <blockquote>
+        <p>Example response:</p>
+        </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": [
+            {
+                "id": 1,
+                "name": "Gorra fly one",
+                "code": "2354678904",
+                "price": 599.89,
+                "created_at": "2021-04-08 04:36:45",
+                "updated_at": "2021-04-08 04:36:45"
+            },
+            {
+                "id": 3,
+                "name": "Tenis deportivos",
+                "code": "3434332231",
+                "price": 1299.7,
+                "created_at": null,
+                "updated_at": null
+            }
+        ]
+    }
+</code></pre>
+<div id="execution-results-GETapi-getproducts" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-getproducts"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-getproducts"></code></pre>
+</div>
+<div id="execution-error-GETapi-getproducts" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-getproducts"></code></pre>
+</div>
+<form id="form-GETapi-getproducts" data-method="GET" data-path="api/getproducts" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-getproducts', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-getproducts" onclick="tryItOut('GETapi-getproducts');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-getproducts" onclick="cancelTryOut('GETapi-getproducts');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-getproducts" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/getproducts</code></b>
+</p>
+</form>
+<h2>Update Product.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/updateproduct" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"idProduct":12,"name":"voluptate","code":"et","price":"sit"}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": {
+            "id": 1,
+            "name": "Gorra fly one",
+            "code": "2354678904",
+            "price": "499.89",
+            "created_at": "2021-04-08 04:36:45",
+            "updated_at": "2021-04-08 04:36:45"
+        }
+    }
+</code></pre>
+<div id="execution-results-POSTapi-updateproduct" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-updateproduct"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-updateproduct"></code></pre>
+</div>
+<div id="execution-error-POSTapi-updateproduct" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-updateproduct"></code></pre>
+</div>
+<form id="form-POSTapi-updateproduct" data-method="POST" data-path="api/updateproduct" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-updateproduct', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-updateproduct" onclick="tryItOut('POSTapi-updateproduct');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-updateproduct" onclick="cancelTryOut('POSTapi-updateproduct');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-updateproduct" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/updateproduct</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idProduct</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idProduct" data-endpoint="POSTapi-updateproduct" data-component="body" required  hidden>
+<br>
+Product ID to be updated
+</p>
+<p>
+<b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="name" data-endpoint="POSTapi-updateproduct" data-component="body" required  hidden>
+<br>
+Product name
+</p>
+<p>
+<b><code>code</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+<input type="text" name="code" data-endpoint="POSTapi-updateproduct" data-component="body" required  hidden>
+<br>
+Product bar code
+</p>
+<p>
+<b><code>price</code></b>&nbsp;&nbsp;<small>double(6,2)</small>  &nbsp;
+<input type="text" name="price" data-endpoint="POSTapi-updateproduct" data-component="body" required  hidden>
+<br>
+Product price
+</p>
+
+</form>
+<h2>Remove Product.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/deleteproduct" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"idProduct":5}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success"
+    }
+</code></pre>
+<div id="execution-results-POSTapi-deleteproduct" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-deleteproduct"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-deleteproduct"></code></pre>
+</div>
+<div id="execution-error-POSTapi-deleteproduct" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-deleteproduct"></code></pre>
+</div>
+<form id="form-POSTapi-deleteproduct" data-method="POST" data-path="api/deleteproduct" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-deleteproduct', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-deleteproduct" onclick="tryItOut('POSTapi-deleteproduct');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-deleteproduct" onclick="cancelTryOut('POSTapi-deleteproduct');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-deleteproduct" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/deleteproduct</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idProduct</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idProduct" data-endpoint="POSTapi-deleteproduct" data-component="body" required  hidden>
+<br>
+Product ID to be removed
+</p>
+
+</form>
+<h2>Create Order.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/createorder" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"idProduct":19}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": {
+            "idUser": 4,
+            "idProduct": "1",
+            "completed": "0",
+            "date": "2021-04-09",
+            "id": 4
+        }
+    }
+</code></pre>
+<div id="execution-results-POSTapi-createorder" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-createorder"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-createorder"></code></pre>
+</div>
+<div id="execution-error-POSTapi-createorder" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-createorder"></code></pre>
+</div>
+<form id="form-POSTapi-createorder" data-method="POST" data-path="api/createorder" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-createorder', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-createorder" onclick="tryItOut('POSTapi-createorder');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-createorder" onclick="cancelTryOut('POSTapi-createorder');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-createorder" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/createorder</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idProduct</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idProduct" data-endpoint="POSTapi-createorder" data-component="body" required  hidden>
+<br>
+ID product purchase
+</p>
+
+</form>
+<h2>Remove Order.</h2>
+<p>@bodyParam idOrder integer required ID of order delete</p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/deleteorder" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+    -d '{"idOrder":4}'</code></pre>
+    <blockquote>
+        <p>Example response:</p>
+        </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success"
+    }
+</code></pre>
+<div id="execution-results-POSTapi-deleteorder" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-deleteorder"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-deleteorder"></code></pre>
+</div>
+<div id="execution-error-POSTapi-deleteorder" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-deleteorder"></code></pre>
+</div>
+<form id="form-POSTapi-deleteorder" data-method="POST" data-path="api/deleteorder" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-deleteorder', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-deleteorder" onclick="tryItOut('POSTapi-deleteorder');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-deleteorder" onclick="cancelTryOut('POSTapi-deleteorder');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-deleteorder" hidden>Send Request 💥</button>
+    </h3>
+<p>
+    <small class="badge badge-black">POST</small>
+    <b><code>api/deleteorder</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idOrder</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idProduct" data-endpoint="POSTapi-updateproduct" data-component="body" required  hidden>
+<br>
+Order ID to be removed
+</p>
+
+</p>
+</form>
+<h2>Show list Orders.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://apirest.boxcode.com.mx/api/getorders" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+    <blockquote>
+        <p>Example response:</p>
+        </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success",
+        "data": [
+            {
+                "idOrder": 1,
+                "nameProduct": "Gorra fly one",
+                "completed": "0",
+                "price": 499.89,
+                "nameUser": "Michelle Marquez"
+            },
+            {
+                "idOrder": 2,
+                "nameProduct": "Tenis deportivos",
+                "completed": "0",
+                "price": 1299.7,
+                "nameUser": "Michelle Marquez"
+            }
+        ]
+    }
+</code></pre>
+<div id="execution-results-GETapi-getorders" hidden>
+    <blockquote>Received response<span id="execution-response-status-GETapi-getorders"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-getorders"></code></pre>
+</div>
+<div id="execution-error-GETapi-getorders" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-getorders"></code></pre>
+</div>
+<form id="form-GETapi-getorders" data-method="GET" data-path="api/getorders" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('GETapi-getorders', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-GETapi-getorders" onclick="tryItOut('GETapi-getorders');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-GETapi-getorders" onclick="cancelTryOut('GETapi-getorders');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-GETapi-getorders" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-green">GET</small>
+ <b><code>api/getorders</code></b>
+</p>
+</form>
+<h2>Update status completed.</h2>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X POST \
+    "http://apirest.boxcode.com.mx/api/completedorder" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"idOrder":4}'
+</code></pre>
+<blockquote>
+    <p>Example response:</p>
+    </blockquote>
+<pre><code class="language-javascript">
+    {
+        "message": "Success"
+    }
+</code></pre>
+<div id="execution-results-POSTapi-completedorder" hidden>
+    <blockquote>Received response<span id="execution-response-status-POSTapi-completedorder"></span>:</blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-completedorder"></code></pre>
+</div>
+<div id="execution-error-POSTapi-completedorder" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-completedorder"></code></pre>
+</div>
+<form id="form-POSTapi-completedorder" data-method="POST" data-path="api/completedorder" data-authed="0" data-hasfiles="0" data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}' onsubmit="event.preventDefault(); executeTryOut('POSTapi-completedorder', this);">
+<h3>
+    Request&nbsp;&nbsp;&nbsp;
+        <button type="button" style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-tryout-POSTapi-completedorder" onclick="tryItOut('POSTapi-completedorder');">Try it out ⚡</button>
+    <button type="button" style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-canceltryout-POSTapi-completedorder" onclick="cancelTryOut('POSTapi-completedorder');" hidden>Cancel</button>&nbsp;&nbsp;
+    <button type="submit" style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;" id="btn-executetryout-POSTapi-completedorder" hidden>Send Request 💥</button>
+    </h3>
+<p>
+<small class="badge badge-black">POST</small>
+ <b><code>api/completedorder</code></b>
+</p>
+<h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+<p>
+<b><code>idOrder</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+<input type="number" name="idOrder" data-endpoint="POSTapi-completedorder" data-component="body" required  hidden>
+<br>
+ID of the order
+</p>
+
+</form>
+
+<script>
+    $(function () {
+        var languages = ["bash","javascript"];
+        setupLanguages(languages);
+    });
+</script>
+</body>
+</html>
